@@ -4,11 +4,11 @@ require_relative 'gilded_rose'
 
 describe GildedRose do
   describe '#update_quality' do
-    it 'does not change the name' do
-      items = [Item.new('fixme', 0, 0)]
-      GildedRose.new(items).update_quality
+    let(:items) { [Item.new('fixme', 0, 0)] }
+    subject(:rose) { GildedRose.new(items).update_quality }
 
-      expect(items[0].name).to eq 'fixme'
+    it 'does not change the name' do
+      expect(rose[0].name).to eq 'fixme'
     end
   end
 end
