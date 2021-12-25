@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+require 'simplecov'
+SimpleCov.start do
+end
 
 require 'byebug'
 require_relative 'gilded_rose'
