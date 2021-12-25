@@ -1,6 +1,7 @@
 class GildedRose
   CONCERT = 'Backstage passes to a TAFKAL80ETC concert'
   BRIE = 'Aged Brie'
+  HAND = 'Sulfuras, Hand of Ragnaros'
 
   def initialize(items)
     @items = items
@@ -26,12 +27,16 @@ class GildedRose
     not_brie?(name) && not_concert?(name)
   end
 
+  def not_hand?(name)
+    name != HAND
+  end
+
   def adjust_quality(item)
     if not_brie_and_not_concert?(item.name)
-      if item.quality > 0
-        if item.name != "Sulfuras, Hand of Ragnaros"
-          item.quality = item.quality - 1
-        end
+      return if item.quality <= 0
+
+      if not_hand?(item.name)
+        item.quality = item.quality - 1
       end
     else
       if item.quality < 50
