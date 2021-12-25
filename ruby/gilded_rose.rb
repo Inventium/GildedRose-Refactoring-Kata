@@ -22,7 +22,6 @@ class GildedRose
         if item.quality < 50
           item.quality = item.quality + 1
           if item.name == CONCERT
-            byebug
             if item.sell_in < 11
               if item.quality < 50
                 item.quality = item.quality + 1
