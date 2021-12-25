@@ -10,9 +10,21 @@ class GildedRose
     name != BRIE
   end
 
+  def brie?(name)
+    name == BRIE
+  end
+
+  def concert?(name)
+    name == CONCERT
+  end
+
+  def not_concert?(name)
+    !concert?(name)
+  end
+
   def update_quality()
     @items.each do |item|
-      if not_brie?(item.name) and item.name != CONCERT
+      if not_brie?(item.name) && not_concert?(item.name)
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
             item.quality = item.quality - 1
@@ -21,7 +33,7 @@ class GildedRose
       else
         if item.quality < 50
           item.quality = item.quality + 1
-          if item.name == CONCERT
+          if concert?(item.name)
             if item.sell_in < 11
               if item.quality < 50
                 item.quality = item.quality + 1
