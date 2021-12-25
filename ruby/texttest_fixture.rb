@@ -1,4 +1,4 @@
-#!/usr/bin/ruby -w
+#!/usr/bin/env ruby -w
 
 require File.join(File.dirname(__FILE__), 'gilded_rose')
 
