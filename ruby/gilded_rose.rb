@@ -22,8 +22,12 @@ class GildedRose
     !concert?(name)
   end
 
+  def not_brie_and_not_concert?(name)
+    not_brie?(name) && not_concert?(name)
+  end
+
   def adjust_quality(item)
-    if not_brie?(item.name) && not_concert?(item.name)
+    if not_brie_and_not_concert?(item.name)
       if item.quality > 0
         if item.name != "Sulfuras, Hand of Ragnaros"
           item.quality = item.quality - 1
