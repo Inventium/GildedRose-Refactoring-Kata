@@ -81,4 +81,36 @@ describe GildedRose do
       end
     end
   end
+
+  describe '#adjust_quality' do
+    context 'extend test cases to get full coverage' do
+      let(:items) { [Item.new(GildedRose::CONCERT, 0, 0)] }
+      subject(:rose) { GildedRose.new(items) }
+
+      it 'covers branch' do
+        expect(rose.adjust_quality(items[0])).to be 3
+      end
+    end
+  end
+
+  describe '#adjust_sell_in' do
+    context 'extend test cases to get full coverage' do
+      let(:items) {
+        # [Item.new(GildedRose::CONCERT, 0, 0)],
+        # [Item.new(GildedRose::CONCERT, 0, 0)]
+      }
+      subject(:rose) { GildedRose.new(items) }
+
+      it 'FIXME'
+    end
+  end
+end
+
+RSpec.describe Item do
+  describe '#to_s' do
+    it 'stringifies itself' do
+      expected = ''
+      expect(Item.new('foobar', 0, 0).to_s).to eq 'foobar, 0, 0'
+    end
+  end
 end

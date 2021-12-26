@@ -8,7 +8,7 @@ class GildedRose
   end
 
   def not_brie?(name)
-    name != BRIE
+    !brie?(name)
   end
 
   def brie?(name)
@@ -32,6 +32,7 @@ class GildedRose
   end
 
   def adjust_quality(item)
+    # byebug
     if not_brie_and_not_concert?(item.name)
       return if item.quality <= 0
 
@@ -43,6 +44,7 @@ class GildedRose
         item.quality = item.quality + 1
 
         if concert?(item.name)
+          # byebug
           if item.sell_in < 11
             if item.quality < 50
               item.quality = item.quality + 1
