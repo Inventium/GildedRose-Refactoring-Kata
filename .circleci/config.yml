@@ -39,7 +39,7 @@ jobs:
     steps:
       - checkout
       - run:
-          # working_directory: ./ruby
+          working_directory: ./ruby
           name: rspec
           command: bundle install && rspec gilded_rose_spec.rb
       # - run:
